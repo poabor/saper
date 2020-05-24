@@ -12,6 +12,7 @@ public class JavaSweeper extends JFrame {
 	private JPanel panel;
 	private final int COLS = 9;
 	private final int ROWS = 9;
+	private final int BOMBS = 10;
 	private final int IMAGE_SIZE = 50;
 	
 	public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class JavaSweeper extends JFrame {
 	}
 	
 	private JavaSweeper() {
-		game = new Game(COLS, ROWS);
+		game = new Game(COLS, ROWS, BOMBS);
 		game.start();
 		setImages();
 		initPanel();
@@ -47,13 +48,13 @@ public class JavaSweeper extends JFrame {
 	 * 
 	 */
 	private void initFrame() {
-		pack();
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Java Sweeper");
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 		setIconImage(getImage("icon"));
+		pack();
 	}
 	
 	private void setImages() {
